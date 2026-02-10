@@ -26,11 +26,11 @@ const nav = [
 
 const Navbar: FC<NavbarProps> = ({}) => {
   return (
-    <header className="sticky inset-0 top-0 z-50 bg-transparent">
+    <header className="sticky inset-0 top-0 z-50  ">
       <div className="mx-auto h-16 md:h-20 max-w-[92%]  px-2 md:px-4 flex items-center justify-between gap-3">
         {/* Left: Brand */}
         <Link href="/" className="flex items-center gap-2 min-w-0">
-          <div className="relative size-20 md:size-14 lg:size-20 shrink-0 -mt-2">
+          <div className="relative size-20 md:size-14 lg:size-20 shrink-0 -mt-2 max-md:-ml-8">
             <Image
               src="/logonew.svg"
               alt="The Crowninn Logo"
@@ -46,7 +46,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             </p>
 
             <p className="font-sans tracking-widest text-[10px] -mt-2 sm:text-[11px] md:text-xs text-foreground/70 flex items-center gap-2">
-              <span className="truncate">Pontville Restaurant</span>
+              <span className="truncate ml-1">Bushrangers Bistro</span>
               <IconRipple strokeWidth={0.75} className="shrink-0" />
             </p>
           </div>

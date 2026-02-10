@@ -1,8 +1,4 @@
-import Navbar from "@/components/global/Navbar";
-import { Button } from "@/components/ui/button";
-import { Sparkles } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import HeroSection from "@/components/home/HeroSection";
 import { FC } from "react";
 
 interface pageProps {}
@@ -23,7 +19,9 @@ const page: FC<pageProps> = ({}) => {
         <div className="absolute top-40 right-[-120px] h-[420px] w-[420px] rounded-full blur-3xl bg-pink-600/20" />
         <div className="absolute bottom-40 left-[-140px] h-[520px] w-[520px] rounded-full blur-3xl bg-primary/20" />
       </div>
-      <div className="h-screen -mt-20 ">Hello</div>
+      <div className="h-screen -mt-16 md:-mt-20 ">
+        <HeroSection></HeroSection>
+      </div>
       <div className="h-screen"></div>
     </main>
   );
