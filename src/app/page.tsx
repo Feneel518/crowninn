@@ -1,5 +1,6 @@
 import AboutSection from "@/components/home/AboutSection";
 import HeroSection from "@/components/home/HeroSection";
+import OurMenu from "@/components/home/OurMenu";
 import { FC } from "react";
 
 interface pageProps {}
@@ -24,6 +25,7 @@ const page: FC<pageProps> = ({}) => {
         <HeroSection></HeroSection>
       </div>
       <AboutSection></AboutSection>
+      <OurMenu></OurMenu>
     </main>
   );
 };
