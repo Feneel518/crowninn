@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import { Toaster } from "sonner";
 import Navbar from "@/components/global/Navbar";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const amarante = Amarante({

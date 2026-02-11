@@ -1,6 +1,10 @@
 import AboutSection from "@/components/home/AboutSection";
 import HeroSection from "@/components/home/HeroSection";
+import HowToBook from "@/components/home/HowToBook";
+import OurInstagram from "@/components/home/OurInstagram";
+import OurLocation from "@/components/home/OurLocation";
 import OurMenu from "@/components/home/OurMenu";
+import Testimonials from "@/components/home/Testimonials";
 import { FC } from "react";
 
 interface pageProps {}
@@ -26,6 +30,10 @@ const page: FC<pageProps> = ({}) => {
       </div>
       <AboutSection></AboutSection>
       <OurMenu></OurMenu>
+      <HowToBook></HowToBook>
+      <Testimonials></Testimonials>
+      <OurInstagram></OurInstagram>
+      <OurLocation></OurLocation>
     </main>
   );
 };
