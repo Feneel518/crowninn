@@ -14,6 +14,8 @@ import { Button } from "../ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import ArrowButton from "../global/ArrowButton";
+import SectionComponent from "../global/SectionComponent";
+import Heading from "../global/Heading";
 
 interface TestimonialsProps {}
 
@@ -55,11 +57,9 @@ const Testimonials: FC<TestimonialsProps> = ({}) => {
   const canPrev = api?.canScrollPrev() ?? false;
   const canNext = api?.canScrollNext() ?? false;
   return (
-    <section className="relative px-6 pb-16 pt-10 md:px-20 md:pb-20 md:pt-16 space-y-8">
+    <SectionComponent>
       <div className="flex items-end justify-between">
-        <h2 className="font-serif text-[clamp(60px,12vw,100px)] ">
-          OUR CLIENTS
-        </h2>
+        <Heading label="Our Clients"></Heading>
         <div className="hidden items-center justify-end py-8 md:flex">
           <div className="" onClick={() => api?.scrollPrev()}>
             <ArrowButton direction="left" label=""></ArrowButton>
@@ -86,7 +86,7 @@ const Testimonials: FC<TestimonialsProps> = ({}) => {
               key={idx}
               className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
               <div className="group relative overflow-hidden rounded-2xl ring-1 ring-border">
-                <div className="relative aspect-3/4 md:saspect-4/3 w-full">
+                <div className="relative aspect-4/5 md:aspect-4/5 w-full">
                   <Image
                     src={s.image}
                     alt={s.title}
@@ -106,10 +106,10 @@ const Testimonials: FC<TestimonialsProps> = ({}) => {
         </CarouselContent>
       </Carousel>
 
-      <div className="mt-12 flex justify-end">
+      <div className=" md:flex md:justify-end">
         <ArrowButton direction="right" label="Leave Feedback"></ArrowButton>
       </div>
-    </section>
+    </SectionComponent>
   );
 };
 

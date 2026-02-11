@@ -6,37 +6,6 @@ interface HeroSectionProps {}
 
 const HeroSection: FC<HeroSectionProps> = ({}) => {
   return (
-    // <div className="h-screen grid md:grid-cols-2 relative">
-    //   <div className="relative h-full w-full">
-    //     <Image
-    //       src={"/mainImage.jpg"}
-    //       alt="Hero Image"
-    //       fill
-    //       className="object-cover"></Image>
-    //   </div>
-    //   <div className="relative p-20 hidden md:block">
-    //     <div className="absolute w-[450px] aspect-5/3  right-20 top-32 ">
-    //       <Image src={"/sideImage.jpg"} alt="side Image" fill></Image>
-    //     </div>
-    //     <div className="h-full  flex items-end justify-end gap-4 ">
-    //       <ArrowButton direction="right" label="View Menu"></ArrowButton>
-    //     </div>
-    //   </div>
-
-    //   <div className="absolute inset-0 flex items-center justify-center ">
-    //     <div className="flex flex-col mt-8">
-    //       <p className="md:text-2xl font-sans -mb-4 md:-mb-8">
-    //         Bushrangers Bistro
-    //       </p>
-    //       <h1 className="text-[70px] md:text-[200px] font-serif ">
-    //         The Crown Inn
-    //       </h1>
-    //       <div className="flex items-end justify-end md:hidden">
-    //         <ArrowButton direction="right" label="View Menu"></ArrowButton>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
     <section className="relative grid min-h-svh md:grid-cols-2">
       {/* Left: Main image */}
       <div className="relative min-h-svh w-full md:min-h-full">

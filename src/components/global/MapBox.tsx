@@ -14,7 +14,7 @@ type MapboxMapProps = {
 export default function MapboxMap({
   lng,
   lat,
-  zoom = 17.5,
+  zoom = 16.5,
   className = "",
   markerLabel = "Location",
 }: MapboxMapProps) {

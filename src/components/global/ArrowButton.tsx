@@ -16,7 +16,7 @@ const ArrowButton: FC<ArrowButtonProps> = ({
   return (
     <div
       className={cn(
-        `group flex cursor-pointer items-center z-40 gap-2 p-2 `,
+        `group flex cursor-pointer items-center z-40 gap-2 md:p-2 max-md:-ml-2`,
         className,
       )}>
       <div

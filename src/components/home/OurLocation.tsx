@@ -2,6 +2,9 @@ import { FC } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import MapboxMap from "../global/MapBox";
+import Heading from "../global/Heading";
+import SectionComponent from "../global/SectionComponent";
+import Image from "next/image";
 
 interface OurLocationProps {}
 
@@ -11,21 +14,55 @@ const OurLocation: FC<OurLocationProps> = ({}) => {
   const lat = -42.68448319849066;
   const lng = 147.26557048966598;
   return (
-    <section className="px-6 py-16 md:px-20">
-      <div className="grid gap-10 md:grid-cols-2 md:items-start">
+    <SectionComponent>
+      <Heading label="Our location"></Heading>
+      <div className="grid gap-12 md:grid-cols-3 md:items-start">
+        <aside className="col-span-2">
+          <MapboxMap lat={lat} lng={lng} markerLabel="The Crown Inn" />
+        </aside>
+        <aside className="flex items-start flex-col h-full font-mono justify-between">
+          <div className=" space-y-4  text-base  ">
+            <p>
+              <span className="font-semibold">WORKING HOURS: </span>Monday -
+              Sunday, 10:00 - 23:00
+            </p>
+            <p>
+              <span className="font-semibold">ADDRESS: </span> 365 Brighton
+              Road, Pontville Tasmania 7030
+            </p>
+            <p>
+              <span className="font-semibold">EMAIL: </span>info@crowninn.com.au
+            </p>
+            <p>
+              <span className="font-semibold">PHONE: </span> +(03) 6268 1235
+            </p>
+          </div>
+
+          <div className="relative w-full aspect-16/8 ">
+            <Image
+              src={"/BookTable.jpg"}
+              alt="image"
+              fill
+              className="object-cover rounded-sm"></Image>
+          </div>
+        </aside>
+      </div>
+      {/* <div className="grid gap-10 md:grid-cols-2 md:items-start ">
         <div>
-          <h2 className="font-serif text-[clamp(42px,6vw,80px)]">Find Us</h2>
-          <p className="mt-4 text-sm text-white/80 md:text-base">
+          <h2 className="font-serif text-[clamp(42px,8vw,100px)]">
+            OUR LOCATION
+          </h2>
+          <p className="mt-4 text-sm md:text-base">
             The Crown Inn, Pontville. Drop in for a meal, a drink, or a catch-up
             — open 7 days.
           </p>
 
-          <div className="mt-6 space-y-2 text-sm text-white/80">
+          <div className="mt-6 space-y-2 text-sm ">
             <p>
-              <span className="text-white/90">Address:</span> Pontville, TAS
+              <span className="">Address:</span> Pontville, TAS
             </p>
             <p>
-              <span className="text-white/90">Hours:</span> 11:30am – late
+              <span className="">Hours:</span> 11:30am – late
             </p>
           </div>
 
@@ -45,8 +82,8 @@ const OurLocation: FC<OurLocationProps> = ({}) => {
         </div>
 
         <MapboxMap lat={lat} lng={lng} markerLabel="The Crown Inn" />
-      </div>
-    </section>
+      </div> */}
+    </SectionComponent>
   );
 };
 
