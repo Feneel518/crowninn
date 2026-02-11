@@ -35,7 +35,7 @@ const ArrowButton: FC<ArrowButtonProps> = ({
       onPointerEnter={onPointerEnter}
       onPointerLeave={onPointerLeave}
       className={cn(
-        `group flex cursor-pointer items-center z-40 gap-2 md:p-2 max-md:-ml-2`,
+        `group flex cursor-pointer items-center z-40 gap-2 md:p-2 md:pl-0 max-md:-ml-2`,
         className,
       )}>
       <div

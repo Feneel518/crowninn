@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 import { create } from "zustand";
 
-export type CursorType = "default" | "hover" | "label";
+export type CursorType = "default" | "hover" | "label" | "weekly";
 
 type Store = {
   type: CursorType;

@@ -31,9 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${amarante.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${amarante.variable} antialiased flex flex-col min-h-svh`}>
         <Navbar></Navbar>
-        {children}
+        <div className="flex-1">{children}</div>
         <Toaster richColors />
         <Cursor></Cursor>
         <Footer></Footer>

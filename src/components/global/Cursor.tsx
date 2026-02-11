@@ -40,7 +40,8 @@ const CustomCursor: FC = () => {
 
   useGSAP(
     () => {
-      const isHovered = type === "hover" || type === "label";
+      const isHovered =
+        type === "hover" || type === "label" || type === "weekly";
       gsap.to(pointer.current, { scale: isHovered ? 2.5 : 1, duration: 0.2 });
     },
     { scope: pointer, dependencies: [type] },
@@ -62,8 +63,6 @@ const CustomCursor: FC = () => {
     };
   }, []);
 
-  console.log(type, label);
-
   return (
     <div
       ref={pointer}
@@ -72,11 +71,18 @@ const CustomCursor: FC = () => {
           ? "bg-primary! border-0!  size-10"
           : type === "label"
             ? "bg-primary/60! backdrop-blur-[2px] size-12 border-0! "
-            : ""
+            : type === "weekly"
+              ? "bg-primary/80! backdrop-blur-[2px] size-28  rounded-2xl"
+              : ""
       }`}>
       {type === "label" && (
         <span className="text-xs uppercase scale-50 whitespace-nowrap text-white font-serif ">
           [ {label} ]
+        </span>
+      )}
+      {type === "weekly" && (
+        <span className="text-xl uppercase scale-50  text-white font-serif ">
+          {label}
         </span>
       )}
 

@@ -67,7 +67,7 @@ function MenuCard({
       <div
         className={[
           "relative w-full rounded-sm",
-          small ? "aspect-7/4" : "aspect-5/4 max-md:aspect-6/4",
+          small ? "aspect-6/4" : "aspect-5/4 max-md:aspect-6/4",
         ].join(" ")}>
         <Image src={img} alt={title} fill className="object-cover rounded-sm" />
         {/* soft overlay */}
