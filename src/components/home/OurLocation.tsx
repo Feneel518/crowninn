@@ -21,7 +21,7 @@ const OurLocation: FC<OurLocationProps> = ({}) => {
       ? `googlegmail://co?to=${encodeURIComponent(CONTACTEMAIL.recepient)}&su=${encodeURIComponent(CONTACTEMAIL.subject)}&body=${encodeURIComponent(CONTACTEMAIL.body)}`
       : `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACTEMAIL.recepient)}&su=${encodeURIComponent(CONTACTEMAIL.subject)}&body=${encodeURIComponent(CONTACTEMAIL.body)}`;
   return (
-    <SectionComponent className="pt-20 ">
+    <SectionComponent className=" py-20">
       <Heading label="Our location"></Heading>
       <div className="grid gap-12 md:grid-cols-3 md:items-start">
         <aside className="md:col-span-2">

@@ -177,7 +177,7 @@ export function Footer() {
           </div>
         </div>
       </SectionComponent>
-      <div className="-mt-12 pl-20 text-center">
+      <div className="md:-mt-12 max-md:py-4 text-center">
         <p className="text-xs font-sans">
           Made with <span aria-hidden>❤️</span> and brains by{" "}
           <a
