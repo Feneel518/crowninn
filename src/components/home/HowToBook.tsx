@@ -12,7 +12,7 @@ const HowToBook: FC<HowToBookProps> = ({}) => {
       <div className="">
         <div className="w-full max-md:h-screen md:aspect-3/1 relative">
           <div className="absolute flex items-center justify-center inset-0  z-30">
-            <div className="md:w-[70%] md:h-[60%] h-full bg-background/60 md:bg-background/80 md:backdrop-blur-xs flex items-center justify-center flex-col gap-4 p-2">
+            <div className="md:w-[65%] md:h-[60%] h-full bg-background/60 md:bg-background/30 md:backdrop-blur-xs flex items-center justify-center flex-col gap-4 p-2">
               <Heading
                 label="How to Book a table"
                 className="text-wrap text-center leading-tight w-full "></Heading>
