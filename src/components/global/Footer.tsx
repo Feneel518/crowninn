@@ -124,7 +124,7 @@ export function Footer() {
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
-                  className="hover:underline">
+                  className="hover:underline hover:underline-offset-4">
                   {item.value}
                 </Link>
               </p>
@@ -141,7 +141,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.label}
-                  className="hover:underline">
+                  className="hover:underline hover:underline-offset-4">
                   {item.label}
                 </Link>
               );
@@ -155,8 +155,12 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-2 font-sans">
-            <p className="">Book a table</p>
-            <p>Leave Feedback</p>
+            <p className="hover:underline hover:underline-offset-4">
+              Book a table
+            </p>
+            <p className="hover:underline hover:underline-offset-4">
+              Leave Feedback
+            </p>
           </div>
 
           <div className="col-span-2 flex flex-col gap-2 font-sans">
@@ -184,7 +188,7 @@ export function Footer() {
             href="https://feneel.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium hover:underline">
+            className="font-medium hover:underline hover:underline-offset-4">
             Feneel
           </a>
         </p>
