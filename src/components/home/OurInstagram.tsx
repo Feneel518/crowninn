@@ -13,7 +13,7 @@ const OurInstagram: FC<OurInstagramProps> = ({}) => {
         label="Our Instagram"
         className="text-wrap leading-tight"></Heading>
       <div className="grid md:grid-cols-4 gap-8 relative ">
-        <div className="h-[350px\ w-full  relative">
+        <div className="h-[350px] w-full  relative">
           <Image
             src={"/sideImage.jpg"}
             alt="image"

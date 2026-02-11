@@ -1,10 +1,40 @@
+"use client";
+
 import Image from "next/image";
-import { FC } from "react";
+
+import { FC, useEffect, useRef } from "react";
 import ArrowButton from "../global/ArrowButton";
+import useCursorStore from "@/lib/hooks/useCursorStore";
 
 interface HeroSectionProps {}
 
 const HeroSection: FC<HeroSectionProps> = ({}) => {
+  const mainTextRef = useRef(null);
+  useEffect(() => {
+    let locomotiveScroll: any;
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+      locomotiveScroll = new LocomotiveScroll({});
+    })();
+  });
+
+  const setCursor = useCursorStore((s) => s.setCursor);
+  const { label, type } = useCursorStore();
+
+  const onPointerEnter = () => {
+    setCursor({
+      label: (
+        <Image
+          src={"/logonew.svg"}
+          alt="logo"
+          fill
+          className="object-cover"></Image>
+      ),
+      type: "hover",
+    });
+  };
+
+  const onPointerLeave = () => setCursor({ label: null, type: "default" });
   return (
     <section className="relative grid min-h-svh md:grid-cols-2">
       {/* Left: Main image */}
@@ -42,7 +72,11 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
             Bushrangers Bistro
           </p>
 
-          <h1 className="font-serif leading-none  text-[clamp(60px,12vw,200px)] text-nowrap">
+          <h1
+            ref={mainTextRef}
+            onPointerEnter={onPointerEnter}
+            onPointerLeave={onPointerLeave}
+            className="font-serif leading-none  text-[clamp(60px,12vw,200px)] text-nowrap">
             The Crown Inn
           </h1>
 

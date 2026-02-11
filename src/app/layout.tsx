@@ -10,7 +10,8 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Navbar from "@/components/global/Navbar";
 import "mapbox-gl/dist/mapbox-gl.css";
-
+import Cursor from "@/components/global/Cursor";
+import { Footer } from "@/components/global/Footer";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const amarante = Amarante({
   subsets: ["latin"],
@@ -34,6 +35,8 @@ export default function RootLayout({
         <Navbar></Navbar>
         {children}
         <Toaster richColors />
+        <Cursor></Cursor>
+        <Footer></Footer>
       </body>
     </html>
   );

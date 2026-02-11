@@ -1,20 +1,39 @@
+"use client";
+import useCursorStore from "@/lib/hooks/useCursorStore";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useRef } from "react";
 
 interface ArrowButtonProps {
   label: string;
   direction: "left" | "right";
   className?: string;
+  showLabel?: boolean;
 }
 
 const ArrowButton: FC<ArrowButtonProps> = ({
   direction = "right",
   label,
   className,
+  showLabel = true,
 }) => {
+  const mainTextRef = useRef(null);
+  const setCursor = useCursorStore((s) => s.setCursor);
+  const { label: cursorLabel, type } = useCursorStore();
+
+  const onPointerEnter = () => {
+    setCursor({
+      label,
+      type: "label",
+    });
+  };
+
+  const onPointerLeave = () => setCursor({ label: null, type: "default" });
   return (
     <div
+      ref={mainTextRef}
+      onPointerEnter={onPointerEnter}
+      onPointerLeave={onPointerLeave}
       className={cn(
         `group flex cursor-pointer items-center z-40 gap-2 md:p-2 max-md:-ml-2`,
         className,
@@ -31,7 +50,7 @@ const ArrowButton: FC<ArrowButtonProps> = ({
 
       <div
         className={`h-4 flex items-center justify-center  translate-x-0 transition-transform duration-300 ${direction === "left" ? "group-hover:-translate-x-2" : "group-hover:translate-x-2"}`}>
-        {label}
+        {showLabel && label}
       </div>
     </div>
   );

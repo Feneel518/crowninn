@@ -62,13 +62,19 @@ const Testimonials: FC<TestimonialsProps> = ({}) => {
         <Heading label="Our Clients"></Heading>
         <div className="hidden items-center justify-end py-8 md:flex">
           <div className="" onClick={() => api?.scrollPrev()}>
-            <ArrowButton direction="left" label=""></ArrowButton>
+            <ArrowButton
+              direction="left"
+              label="Prev"
+              showLabel={false}></ArrowButton>
           </div>
           <div className="font-serif text-xl text-secondary-foreground">
             {String(current).padStart(2, "0")}/{String(count).padStart(2, "0")}
           </div>
           <div className="" onClick={() => api?.scrollNext()}>
-            <ArrowButton direction="right" label=""></ArrowButton>
+            <ArrowButton
+              direction="right"
+              label="Next"
+              showLabel={false}></ArrowButton>
           </div>
         </div>
       </div>
