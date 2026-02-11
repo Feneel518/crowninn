@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import mapboxgl from "mapbox-gl";
+import { Button } from "@/components/ui/button";
 
 type MapboxMapProps = {
   lng: number;
@@ -20,6 +21,39 @@ export default function MapboxMap({
 }: MapboxMapProps) {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const mapRef = React.useRef<mapboxgl.Map | null>(null);
+
+  // keep defaults stable for reset
+  const initialViewRef = React.useRef({
+    center: [lng, lat] as [number, number],
+    zoom,
+    pitch: 55,
+    bearing: -25,
+  });
+
+  // Update initial view if props change (e.g. navigating to another location)
+  React.useEffect(() => {
+    initialViewRef.current = {
+      center: [lng, lat],
+      zoom,
+      pitch: 55,
+      bearing: -25,
+    };
+  }, [lng, lat, zoom]);
+
+  const onReset = React.useCallback(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    const v = initialViewRef.current;
+    map.flyTo({
+      center: v.center,
+      zoom: v.zoom,
+      pitch: v.pitch,
+      bearing: v.bearing,
+      duration: 900,
+      essential: true,
+    });
+  }, []);
 
   React.useEffect(() => {
     if (!containerRef.current) return;
@@ -58,7 +92,7 @@ export default function MapboxMap({
         <circle cx="12" cy="10" r="2.6" fill="#ffffff"/>
       </svg>
     `;
-    pin.style.transform = "translateY(-16px)"; // lift the tip to the exact coordinate
+    pin.style.transform = "translateY(-16px)";
 
     new mapboxgl.Marker({ element: pin, anchor: "bottom" })
       .setLngLat([lng, lat])
@@ -71,14 +105,11 @@ export default function MapboxMap({
 
     // ----- 3D Buildings -----
     map.on("load", () => {
-      // Find a label layer to place buildings underneath nicely
       const layers = map.getStyle().layers || [];
       const labelLayerId = layers.find(
         (l) => l.type === "symbol" && (l.layout as any)?.["text-field"],
       )?.id;
 
-      // Mapbox standard styles include a "composite" source with "building" layer.
-      // If you use a custom style, ensure it contains these.
       map.addLayer(
         {
           id: "3d-buildings",
@@ -110,6 +141,18 @@ export default function MapboxMap({
         "relative overflow-hidden rounded-2xl ring-1 ring-black/10",
         className,
       ].join(" ")}>
+      {/* Reset button overlay */}
+      <div className="absolute left-3 top-3 z-10">
+        <Button
+          type="button"
+          variant="secondary"
+          size="sm"
+          onClick={onReset}
+          className="backdrop-blur supports-backdrop-filter:bg-background/70">
+          Reset view
+        </Button>
+      </div>
+
       <div ref={containerRef} className="h-[380px] w-full md:h-[460px]" />
     </div>
   );
