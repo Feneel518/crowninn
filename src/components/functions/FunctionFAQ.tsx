@@ -32,10 +32,10 @@ const FAQ = [
 
 const FunctionFAQ: FC<FunctionFAQProps> = ({}) => {
   return (
-    <SectionComponent>
+    <SectionComponent className="pb-20">
       <Heading label="FAQS"></Heading>
-      <div className="grid grid-cols-3 gap-12">
-        <div className="w-full min-h-[550px] h-full relative">
+      <div className="grid md:grid-cols-3 gap-12">
+        <div className="w-full min-h-[550px] h-full relative max-md:hidden">
           <Image
             src={"/Book.jpg"}
             alt="image"
@@ -43,7 +43,7 @@ const FunctionFAQ: FC<FunctionFAQProps> = ({}) => {
             className="object-cover"></Image>
         </div>
         <div className="col-span-2">
-          <Heading label="Basic Questions"></Heading>
+          <Heading label="Basic Questions" className="max-md:hidden"></Heading>
           <Accordion
             type="single"
             collapsible
