@@ -182,7 +182,7 @@ const UpcomingEvents: FC<UpcomingEventsProps> = ({}) => {
             <CarouselItem
               key={idx}
               className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-              <Card key={ev.id} className="rounded-2xl">
+              <Card key={ev.id} className="rounded-2xl group">
                 <CardHeader className="space-y-2">
                   <div className="flex items-center justify-between gap-3">
                     {typeBadge(ev.type)}
@@ -195,12 +195,12 @@ const UpcomingEvents: FC<UpcomingEventsProps> = ({}) => {
                       <Badge variant="secondary">Free entry</Badge>
                     )}
                   </div>
-                  <div className="w-full h-64 relative">
+                  <div className="w-full h-64 overflow-hidden relative">
                     <Image
                       alt="Event Image"
                       src={"/Book.jpg"}
                       fill
-                      className="object-cover"></Image>
+                      className="object-cover group-hover:scale-105 transition-all duration-300 ease-in-out"></Image>
                   </div>
 
                   <CardTitle className="text-xl">{ev.title}</CardTitle>

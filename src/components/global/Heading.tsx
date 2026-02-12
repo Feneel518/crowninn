@@ -10,7 +10,7 @@ const Heading: FC<HeadingProps> = ({ label, className }) => {
   return (
     <h2
       className={cn(
-        "font-serif uppercase text-[clamp(60px,8vw,120px)] leading-tight",
+        "font-serif uppercase text-[clamp(60px,8vw,80px)] leading-tight",
         className,
       )}>
       {label}

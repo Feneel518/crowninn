@@ -42,7 +42,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
           <div className="min-w-0 leading-tight -ml-4">
             <p className="font-serif tracking-tight  text-xl sm:text-xl md:text-2xl lg:text-[30px] truncate">
-              The Crown Inn
+              The Pontville Pub
             </p>
 
             <p className="font-sans tracking-widest text-[10px] -mt-2 sm:text-[11px] md:text-xs text-foreground/70 flex items-center gap-2">

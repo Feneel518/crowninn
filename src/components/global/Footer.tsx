@@ -49,7 +49,7 @@ const contactItems = [
   },
   {
     label: "Email",
-    value: "info@crowninn.com.au",
+    value: "pontvillepub@gmail.com",
     href: gmailLink,
     external: true,
   },
@@ -90,7 +90,7 @@ export function Footer() {
 
               <div className="min-w-0 leading-tight -ml-4">
                 <p className="font-serif tracking-tight  text-xl sm:text-xl md:text-2xl lg:text-[30px] truncate">
-                  The Crown Inn
+                  The Pontville Pub
                 </p>
 
                 <p className="font-sans tracking-widest text-[10px] -mt-2 sm:text-[11px] md:text-xs text-foreground/70 flex items-center gap-2">
@@ -151,7 +151,7 @@ export function Footer() {
           <div className="flex flex-col gap-2 font-sans">
             <h3 className="font-serif text-2xl">WORK HOURS</h3>
             <p className="">Monday to Sunday</p>
-            <p>10:00 to 23:00</p>
+            <p>10:00 to 21:00</p>
           </div>
 
           <div className="flex flex-col gap-2 font-sans">
@@ -185,11 +185,11 @@ export function Footer() {
         <p className="text-xs font-sans">
           Made with <span aria-hidden>❤️</span> and brains by{" "}
           <a
-            href="https://feneel.com"
+            href="https://merrymatrix.com.au"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium hover:underline hover:underline-offset-4">
-            Feneel
+            Merry Matrix
           </a>
         </p>
       </div>

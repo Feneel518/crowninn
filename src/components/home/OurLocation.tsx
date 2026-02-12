@@ -31,7 +31,7 @@ const OurLocation: FC<OurLocationProps> = ({}) => {
           <div className=" space-y-4  text-base  ">
             <p>
               <span className="font-semibold">WORKING HOURS: </span>Monday -
-              Sunday, 10:00 - 23:00
+              Sunday, 10:00 - 21:00
             </p>
             <p>
               <span className="font-semibold">ADDRESS: </span>
@@ -44,7 +44,7 @@ const OurLocation: FC<OurLocationProps> = ({}) => {
             <p>
               <span className="font-semibold">EMAIL: </span>
               <Link href={gmailLink} target="_blank" rel="noopener noreferrer">
-                info@crowninn.com.au
+                pontvillepub@gmail.com
               </Link>
             </p>
             <p>
@@ -62,42 +62,6 @@ const OurLocation: FC<OurLocationProps> = ({}) => {
           </div>
         </aside>
       </div>
-      {/* <div className="grid gap-10 md:grid-cols-2 md:items-start ">
-        <div>
-          <h2 className="font-serif text-[clamp(42px,8vw,100px)]">
-            OUR LOCATION
-          </h2>
-          <p className="mt-4 text-sm md:text-base">
-            The Crown Inn, Pontville. Drop in for a meal, a drink, or a catch-up
-            — open 7 days.
-          </p>
-
-          <div className="mt-6 space-y-2 text-sm ">
-            <p>
-              <span className="">Address:</span> Pontville, TAS
-            </p>
-            <p>
-              <span className="">Hours:</span> 11:30am – late
-            </p>
-          </div>
-
-          <div className="mt-8 flex gap-3">
-            <Button asChild>
-              <Link
-                href={`https://www.google.com/maps?q=${lat},${lng}`}
-                target="_blank">
-                Get Directions
-              </Link>
-            </Button>
-
-            <Button asChild variant="outline">
-              <Link href="/contact">Contact</Link>
-            </Button>
-          </div>
-        </div>
-
-        <MapboxMap lat={lat} lng={lng} markerLabel="The Crown Inn" />
-      </div> */}
     </SectionComponent>
   );
 };

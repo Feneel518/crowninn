@@ -77,7 +77,7 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
             onPointerEnter={onPointerEnter}
             onPointerLeave={onPointerLeave}
             className="font-serif leading-none  text-[clamp(60px,12vw,200px)] text-nowrap">
-            The Crown Inn
+            The Pontville Pub
           </h1>
 
           {/* Mobile button (only on small screens) */}
