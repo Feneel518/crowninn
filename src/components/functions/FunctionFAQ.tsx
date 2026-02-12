@@ -35,7 +35,7 @@ const FunctionFAQ: FC<FunctionFAQProps> = ({}) => {
     <SectionComponent className="pb-20">
       <Heading label="FAQS"></Heading>
       <div className="grid md:grid-cols-3 gap-12">
-        <div className="w-full min-h-[550px] h-full relative max-md:hidden">
+        <div className="w-full min-h-[600px] h-full relative max-md:hidden">
           <Image
             src={"/Book.jpg"}
             alt="image"
@@ -52,8 +52,12 @@ const FunctionFAQ: FC<FunctionFAQProps> = ({}) => {
             {FAQ.map((f, index) => {
               return (
                 <AccordionItem value={f.q}>
-                  <AccordionTrigger>{f.q}</AccordionTrigger>
-                  <AccordionContent>{f.a}</AccordionContent>
+                  <AccordionTrigger className="text-3xl">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="font-mono">
+                    {f.a}
+                  </AccordionContent>
                 </AccordionItem>
               );
             })}

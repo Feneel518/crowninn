@@ -99,7 +99,7 @@ const Functions: FC<FunctionsProps> = ({}) => {
                   </div>
 
                   <Button asChild className="w-full" variant={"elegant"}>
-                    <Link href="/contact">Enquire for {f.title}</Link>
+                    <Link href="/contact">Enquire </Link>
                   </Button>
                 </CardContent>
               </Card>

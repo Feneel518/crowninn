@@ -10,6 +10,7 @@ type MapboxMapProps = {
   zoom?: number;
   className?: string;
   markerLabel?: string;
+  height?: string; // add this
 };
 
 export default function MapboxMap({
@@ -18,6 +19,7 @@ export default function MapboxMap({
   zoom = 16.5,
   className = "",
   markerLabel = "Location",
+  height = "h-[380px] md:h-[460px]",
 }: MapboxMapProps) {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const mapRef = React.useRef<mapboxgl.Map | null>(null);
@@ -84,6 +86,16 @@ export default function MapboxMap({
       "top-right",
     );
 
+    // ✅ ensure correct sizing once style is ready
+    map.on("load", () => {
+      map.resize();
+    });
+
+    // ✅ ensure correct sizing on any container resize
+    const ro = new ResizeObserver(() => {
+      map.resize();
+    });
+    ro.observe(containerRef.current);
     // ----- Pointer Marker (Pin) -----
     const pin = document.createElement("div");
     pin.innerHTML = `
@@ -130,6 +142,7 @@ export default function MapboxMap({
     });
 
     return () => {
+      ro.disconnect();
       map.remove();
       mapRef.current = null;
     };
@@ -153,7 +166,7 @@ export default function MapboxMap({
         </Button>
       </div>
 
-      <div ref={containerRef} className="h-[380px] w-full md:h-[460px]" />
+      <div ref={containerRef} className={`${height} w-full`} />
     </div>
   );
 }
