@@ -1,4 +1,7 @@
+"use client";
+
 import { Menu, Stars, Waves, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -25,97 +28,110 @@ const nav = [
 ];
 
 const Navbar: FC<NavbarProps> = ({}) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <header className="sticky inset-0 top-0 z-50  ">
-      <div className="mx-auto h-16 md:h-20 max-w-[92%]  px-2 md:px-4 flex items-center justify-between gap-3">
-        {/* Left: Brand */}
-        <Link href="/" className="flex items-center gap-2 min-w-0">
-          <div className="relative size-20 md:size-14 lg:size-20 shrink-0 -mt-2 max-md:-ml-8">
-            <Image
-              src="/logonew.svg"
-              alt="The Crowninn Logo"
-              fill
-              priority
-              className="object-contain"
-            />
-          </div>
+      <div
+        className={` h-16 md:h-20 pt-1  transition-all duration-500 ${isScrolled ? "bg-white/80 backdrop-blur-md" : "bg-transparent"}`}>
+        <div
+          className={`mx-auto max-w-[92%]    flex items-center justify-between gap-3  `}>
+          {/* Left: Brand */}
+          <Link href="/" className="flex items-center gap-2 min-w-0">
+            <div className="relative size-20 md:size-14 lg:size-20 shrink-0 -mt-2 max-md:-ml-8">
+              <Image
+                src="/logonew.svg"
+                alt="The Crowninn Logo"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
 
-          <div className="min-w-0 leading-tight -ml-4">
-            <p className="font-serif tracking-tight  text-xl sm:text-xl md:text-2xl lg:text-[30px] truncate">
-              The Pontville Pub
-            </p>
+            <div className="min-w-0 leading-tight -ml-4">
+              <p className="font-serif tracking-tight  text-xl sm:text-xl md:text-2xl lg:text-[30px] truncate">
+                The Pontville Pub
+              </p>
 
-            <p className="font-sans tracking-widest text-[10px] -mt-2 sm:text-[11px] md:text-xs text-foreground/70 flex items-center gap-2">
-              <span className="truncate ml-1">Bushrangers Bistro</span>
-              <IconRipple strokeWidth={0.75} className="shrink-0" />
-            </p>
-          </div>
-        </Link>
+              <p className="font-sans tracking-widest text-[10px] -mt-2 sm:text-[11px] md:text-xs text-foreground/70 flex items-center gap-2">
+                <span className="truncate ml-1">Bushrangers Bistro</span>
+                <IconRipple strokeWidth={0.75} className="shrink-0" />
+              </p>
+            </div>
+          </Link>
 
-        {/* Center: Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2 text-sm text-foreground/70">
-          {nav.map((i) => (
-            <Link
-              key={i.href}
-              href={i.href}
-              className="px-3 py-2 rounded-md hover:text-foreground hover:bg-primary/20 transition whitespace-nowrap">
-              {i.label}
-            </Link>
-          ))}
-        </nav>
+          {/* Center: Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 text-sm text-foreground/70">
+            {nav.map((i) => (
+              <Link
+                key={i.href}
+                href={i.href}
+                className="px-3 py-2 rounded-md hover:text-foreground hover:bg-primary/20 transition whitespace-nowrap">
+                {i.label}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Right: Actions */}
-        <div className="flex items-center gap-2 shrink-0">
-          {/* Desktop CTA */}
-          <div className="hidden md:flex">
-            <Button variant="elegant">Book a Table</Button>
-          </div>
+          {/* Right: Actions */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Desktop CTA */}
+            <div className="hidden md:flex">
+              <Button variant="elegant">Book a Table</Button>
+            </div>
 
-          {/* Mobile menu */}
-          <div className="md:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="shrink-0">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-
-              <SheetContent
-                showCloseButton={false}
-                side="right"
-                className="w-[88%] max-w-sm bg-background border-l p-0">
-                <SheetHeader className="h-16 px-4 flex-row items-center justify-between border-b">
-                  <SheetTitle className="font-serif text-lg font-normal">
-                    The Crown Inn
-                  </SheetTitle>
-
-                  <SheetClose asChild>
-                    <Button variant="outline" size="icon">
-                      <X className="h-5 w-5" />
-                    </Button>
-                  </SheetClose>
-                </SheetHeader>
-
-                <nav className="grid">
-                  {nav.map((l) => (
-                    <SheetClose asChild key={l.href}>
-                      <Link
-                        href={l.href}
-                        className="px-4 py-3 border-b hover:bg-primary/20 transition uppercase tracking-wider text-sm">
-                        {l.label}
-                      </Link>
-                    </SheetClose>
-                  ))}
-                </nav>
-
-                <div className="p-4">
-                  <Separator className="mb-4" />
-                  <Button variant="outline" className="w-full">
-                    Book a Table
+            {/* Mobile menu */}
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="icon" className="shrink-0">
+                    <Menu className="h-5 w-5" />
                   </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
+                </SheetTrigger>
+
+                <SheetContent
+                  showCloseButton={false}
+                  side="right"
+                  className="w-[88%] max-w-sm bg-background border-l p-0">
+                  <SheetHeader className="h-16 px-4 flex-row items-center justify-between border-b">
+                    <SheetTitle className="font-serif text-lg font-normal">
+                      The Crown Inn
+                    </SheetTitle>
+
+                    <SheetClose asChild>
+                      <Button variant="outline" size="icon">
+                        <X className="h-5 w-5" />
+                      </Button>
+                    </SheetClose>
+                  </SheetHeader>
+
+                  <nav className="grid">
+                    {nav.map((l) => (
+                      <SheetClose asChild key={l.href}>
+                        <Link
+                          href={l.href}
+                          className="px-4 py-3 border-b hover:bg-primary/20 transition uppercase tracking-wider text-sm">
+                          {l.label}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </nav>
+
+                  <div className="p-4">
+                    <Separator className="mb-4" />
+                    <Button variant="outline" className="w-full">
+                      Book a Table
+                    </Button>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </div>
