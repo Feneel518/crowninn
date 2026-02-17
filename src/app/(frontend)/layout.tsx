@@ -1,12 +1,10 @@
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { fileRouter } from "@/lib/uploadthing/core";
-import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import Cursor from "@/components/global/Cursor";
+import { Footer } from "@/components/global/Footer";
+import Navbar from "@/components/global/Navbar";
 import "mapbox-gl/dist/mapbox-gl.css";
 import type { Metadata } from "next";
 import { Amarante, Inter } from "next/font/google";
 import { Toaster } from "sonner";
-import { extractRouterConfig } from "uploadthing/server";
-import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const amarante = Amarante({
   subsets: ["latin"],
@@ -28,12 +26,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} ${amarante.variable} antialiased flex flex-col min-h-svh`}>
-        <NextSSRPlugin routerConfig={extractRouterConfig(fileRouter)} />
-        <div className="flex-1">
-          {" "}
-          <TooltipProvider>{children}</TooltipProvider>
-        </div>
+        <Navbar></Navbar>
+        <div className="flex-1">{children}</div>
         <Toaster richColors />
+        <Cursor></Cursor>
+        <Footer></Footer>
       </body>
     </html>
   );
